@@ -1,3 +1,14 @@
+name: AI DRAMA ROBOT
+on:
+  workflow_dispatch:
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy Channels
         run: |
           echo '[
             {"name": "beIN Sports", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/BeIN_Sports_logo.svg/2560px-BeIN_Sports_logo.svg.png", "url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"},
@@ -7,5 +18,5 @@
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
           git add data.json
-          git commit -m "Real Channels Added" || exit 0
+          git commit -m "Fix & Activate" || exit 0
           git push
