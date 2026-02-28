@@ -1,21 +1,5 @@
-name: AI DRAMA ROBOT
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 */6 * * *'
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v3
-      - name: Activate Channels
         run: |
-          echo '{"status": "active", "date": "'$(date)'"}' > data.json
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
-          git add data.json
-          git commit -m "Channels Activated ✅" || exit 0
-          git push
+          echo '[
+            {"name": "beIN Sports", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/BeIN_Sports_logo.svg/2560px-BeIN_Sports_logo.svg.png", "url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"},
+            {"name": "MBC", "image": "https://upload.wikimedia.org/wikipedia/en/thumb/7/70/MBC1_logo_2012.svg/1200px-MBC1_logo_2012.svg.png", "url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"}
+          ]' > data.json
