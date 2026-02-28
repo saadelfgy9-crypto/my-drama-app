@@ -1,61 +1,41 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Smart Drama</title>
+    <title>AI DRAMA LIVE</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); }
-        .active-tab { border-bottom: 3px solid #3b82f6; color: #3b82f6; }
+        body { background-color: #050505; }
+        .channel-card { transition: transform 0.2s; background: #111; border: 1px solid #222; }
+        .channel-card:active { transform: scale(0.95); }
     </style>
 </head>
-<body class="bg-slate-950 text-white font-sans">
-
-    <header class="p-5 glass sticky top-0 z-50 flex justify-between items-center">
-        <h1 class="text-xl font-black italic text-blue-500">AI DRAMA LIVE</h1>
-        <div class="bg-red-600 px-2 py-1 rounded-full text-[10px] animate-pulse">AI BOT ACTIVE</div>
+<body class="text-white">
+    <header class="sticky top-0 z-50 bg-black/80 backdrop-blur-md p-4 border-b border-red-600 text-center">
+        <h1 class="text-xl font-bold text-red-600">AI DRAMA LIVE 📺</h1>
     </header>
 
-    <main class="p-4 pb-24">
-        <section id="tv-section">
-            <h2 class="text-lg font-bold mb-4">تصفح قنوات العالم 🌍</h2>
-            <div class="grid grid-cols-4 gap-4" id="flags-container">
-                </div>
-        </section>
-
-        <section id="movie-section" class="hidden">
-            <h2 class="text-lg font-bold mb-4">سينما الذكاء الاصطناعي 🎬</h2>
-            <div class="grid grid-cols-2 gap-4" id="movies-container"></div>
-        </section>
+    <main class="p-4 grid grid-cols-3 gap-3" id="app">
+        <div class="channel-card rounded-lg p-2 text-center">
+            <img src="https://logodownload.org/wp-content/uploads/2019/08/bein-sports-logo-0.png" class="w-full h-16 object-contain">
+            <p class="text-[10px] mt-1">beIN 1</p>
+        </div>
+        <div class="channel-card rounded-lg p-2 text-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/MBC1_Logo.png" class="w-full h-16 object-contain">
+            <p class="text-[10px] mt-1">MBC 1</p>
+        </div>
+        <div class="channel-card rounded-lg p-2 text-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/OSN_logo.svg" class="w-full h-16 object-contain">
+            <p class="text-[10px] mt-1">OSN</p>
+        </div>
     </main>
 
-    <nav class="fixed bottom-0 w-full glass p-4 flex justify-around border-t border-gray-800">
-        <button onclick="showTab('tv')" class="flex flex-col items-center"><span>📺</span><span class="text-xs">قنوات</span></button>
-        <button onclick="showTab('movies')" class="flex flex-col items-center"><span>🍿</span><span class="text-xs">أفلام</span></button>
-        <button onclick="showTab('sports')" class="flex flex-col items-center"><span>⚽</span><span class="text-xs">كورة</span></button>
+    <nav class="fixed bottom-0 w-full bg-[#111] border-t border-gray-800 flex justify-around p-3 text-xs">
+        <a href="#" class="text-red-500">📺 القنوات</a>
+        <a href="#" class="text-gray-400">🎬 أفلام</a>
+        <a href="#" class="text-gray-400">⚽ كورة</a>
     </nav>
-
-    <script>
-        // الـ AI هيملا البيانات هنا أوتوماتيك
-        const countries = [
-            {n:'مصر', c:'eg'}, {n:'السعودية', c:'sa'}, {n:'فرنسا', c:'fr'}, {n:'أمريكا', c:'us'}
-        ];
-
-        const flagsContainer = document.getElementById('flags-container');
-        countries.forEach(country => {
-            flagsContainer.innerHTML += `
-                <div class="flex flex-col items-center">
-                    <img src="https://flagcdn.com/w160/${country.c}.png" class="w-14 h-14 rounded-full object-cover border-2 border-gray-700 hover:border-blue-500 transition">
-                    <span class="text-[10px] mt-1">${country.n}</span>
-                </div>
-            `;
-        });
-
-        function showTab(tab) {
-            // وظيفة التبديل بين الأقسام
-            alert("الذكاء الاصطناعي يقوم الآن بجلب أحدث روابط لـ " + tab);
-        }
-    </script>
 </body>
 </html>
