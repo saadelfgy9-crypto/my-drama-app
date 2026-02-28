@@ -1,15 +1,19 @@
-name: Drama AI Bot
+name: Drama Robot
 on:
+  workflow_dispatch:
   schedule:
-    - cron: '0 */6 * * *' # يحدث الروابط تلقائياً كل 6 ساعات
-  workflow_dispatch: # يضيف زر "تشغيل يدوياً"
+    - cron: '0 */6 * * *'
 
 jobs:
-  update:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Fetch Movies & Matches
+      - name: Update Data
         run: |
-          echo "جاري سحب أحدث روابط الأفلام والقنوات المشفرة..."
-          # هنا الروبوت يقوم بعمله السحري في الخلفية
+          echo '{"status": "success"}' > data.json
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add data.json
+          git commit -m "Update links" || exit 0
+          git push
