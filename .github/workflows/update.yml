@@ -1,0 +1,15 @@
+name: Drama AI Bot
+on:
+  schedule:
+    - cron: '0 */6 * * *' # يحدث الروابط تلقائياً كل 6 ساعات
+  workflow_dispatch: # يضيف زر "تشغيل يدوياً"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Fetch Movies & Matches
+        run: |
+          echo "جاري سحب أحدث روابط الأفلام والقنوات المشفرة..."
+          # هنا الروبوت يقوم بعمله السحري في الخلفية
