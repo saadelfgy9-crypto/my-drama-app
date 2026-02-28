@@ -1,4 +1,4 @@
-name: Drama Robot
+name: AI DRAMA ROBOT
 on:
   workflow_dispatch:
   schedule:
@@ -7,13 +7,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v3
-      - name: Update Data
+      - name: Activate Channels
         run: |
-          echo '{"status": "success"}' > data.json
+          echo '{"status": "active", "date": "'$(date)'"}' > data.json
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
           git add data.json
-          git commit -m "Update links" || exit 0
+          git commit -m "Channels Activated ✅" || exit 0
           git push
