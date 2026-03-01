@@ -12,11 +12,11 @@ jobs:
         run: |
           echo '[
             {"name": "beIN Sports", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/BeIN_Sports_logo.svg/2560px-BeIN_Sports_logo.svg.png", "url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"},
-            {"name": "OSN", "image": "https://logodownload.org/wp-content/uploads/2019/09/osn-logo.png", "url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"},
-            {"name": "MBC 1", "image": "https://upload.wikimedia.org/wikipedia/en/thumb/7/70/MBC1_logo_2012.svg/1200px-MBC1_logo_2012.svg.png", "url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"}
+            {"name": "OSN Channels", "image": "https://logodownload.org/wp-content/uploads/2019/09/osn-logo.png", "url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"},
+            {"name": "MBC 1 Live", "image": "https://upload.wikimedia.org/wikipedia/en/thumb/7/70/MBC1_logo_2012.svg/1200px-MBC1_logo_2012.svg.png", "url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"}
           ]' > data.json
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
           git add data.json
-          git commit -m "Fix & Activate" || exit 0
+          git commit -m "Add Real Channels ✅" || exit 0
           git push
